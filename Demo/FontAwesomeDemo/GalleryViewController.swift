@@ -31,7 +31,7 @@ extension GalleryViewController: UICollectionViewDataSource {
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = self.iconCollectionView.dequeueReusableCell(withReuseIdentifier: "gallery", for: indexPath) as! GalleryCell
+		let cell = self.iconCollectionView.dequeueReusableCell(withReuseIdentifier: "gallery", for: indexPath) as? GalleryCell
 
 		let fontItem = self.fontList[indexPath.row]
 
@@ -45,6 +45,5 @@ extension GalleryViewController: UICollectionViewDataSource {
 
 		return cell
 	}
-
 
 }

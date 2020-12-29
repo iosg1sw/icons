@@ -122,7 +122,6 @@ fontAwesomeEnum += """
 
 """
 
-
 sortedKeys.forEach { key in
     guard let value = icons[key] else { return }
     let enumKeyName = key.filteredKeywords().camelCased(with: "-")
@@ -185,7 +184,6 @@ sortedBrandsKeys.forEach { key in
 
     """
 }
-
 
 fontAwesomeEnum += """
 
