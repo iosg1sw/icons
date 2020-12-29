@@ -24,7 +24,8 @@
 // Font-Awesome submodule and run `./codegen.swift`.
 
 /// An enumaration of FontAwesome icon names.
-// swiftlint:disable file_length type_body_length
+// swiftlint:disable all
+
 public enum FontAwesome: String, CaseIterable {
     case fiveHundredPixels = "fa-500px"
     case accessibleIcon = "fa-accessible-icon"
@@ -5340,7 +5341,7 @@ public enum FontAwesomeBrands: String {
             case .yoast: return "\u{f2b1}"
             case .youtube: return "\u{f167}"
             case .youtubeSquare: return "\u{f431}"
-            case .zhihu: return "\u{f63f}"        
+            case .zhihu: return "\u{f63f}"
         }
     }
 }
