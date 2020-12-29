@@ -269,12 +269,12 @@ extension URL {
     static func fontURL(for fontName: String) -> URL? {
         let bundle = Bundle(for: FontLoader.self)
 
-        if let fontURL = bundle.url(forResource: fontName, withExtension: "otf") {
+        if let fontURL = bundle.url(forResource: "Resources.bundle/IconsFonts/\(fontName)", withExtension: "otf") {
             return fontURL
         }
 
         // If this framework is added using CocoaPods, resources is placed under a subdirectory
-        if let fontURL = bundle.url(forResource: fontName, withExtension: "otf", subdirectory: "FontAwesome.swift.bundle") {
+        if let fontURL = bundle.url(forResource: "Resources.bundle/IconsFonts/\(fontName)", withExtension: "otf", subdirectory: "FontAwesome.swift.bundle") {
             return fontURL
         }
 
