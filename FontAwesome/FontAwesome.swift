@@ -95,14 +95,14 @@ public extension UIFont {
     /// - returns: A UIFont object of FontAwesome.
     class func fontAwesome(ofSize fontSize: CGFloat, style: FontAwesomeStyle) -> UIFont {
         loadFontAwesome(ofStyle: style)
-        for family: String in UIFont.familyNames
-               {
-                   print(family)
-                   for names: String in UIFont.fontNames(forFamilyName: family)
-                   {
-                       print("== \(names)")
-                   }
-               }
+//        for family: String in UIFont.familyNames
+//               {
+//                   print(family)
+//                   for names: String in UIFont.fontNames(forFamilyName: family)
+//                   {
+//                       print("== \(names)")
+//                   }
+//               }
         return UIFont(name: style.fontName(), size: fontSize)!
     }
 
@@ -180,7 +180,7 @@ public extension UIImage {
     /// - parameter size: The image size.
     /// - parameter backgroundColor: The background color (optional).
     /// - returns: A string that will appear as icon with FontAwesome
-    static func fontAwesomeIcon(name: FontAwesome, style: FontAwesomeStyle, textColor: UIColor, size: CGSize, backgroundColor: UIColor = UIColor.clear, borderWidth: CGFloat = 0, borderColor: UIColor = UIColor.clear) -> UIImage {
+    static func fontAwesomeIcon(name: String, style: FontAwesomeStyle, textColor: UIColor, size: CGSize, backgroundColor: UIColor = UIColor.clear, borderWidth: CGFloat = 0, borderColor: UIColor = UIColor.clear) -> UIImage {
 
         // Prevent application crash when passing size where width or height is set equal to or less than zero, by clipping width and height to a minimum of 1 pixel.
         var size = size
@@ -195,7 +195,7 @@ public extension UIImage {
         // stroke width expects a whole number percentage of the font size
         let strokeWidth: CGFloat = fontSize == 0 ? 0 : (-100 * borderWidth / fontSize)
 
-        let attributedString = NSAttributedString(string: String.fontAwesomeIcon(name: name), attributes: [
+        let attributedString = NSAttributedString(string: name, attributes: [
             NSAttributedString.Key.font: UIFont.fontAwesome(ofSize: fontSize, style: style),
             NSAttributedString.Key.foregroundColor: textColor,
             NSAttributedString.Key.backgroundColor: backgroundColor,
@@ -221,7 +221,7 @@ public extension UIImage {
     /// - returns: A string that will appear as icon with FontAwesome
     static func fontAwesomeIcon(code: String, style: FontAwesomeStyle, textColor: UIColor, size: CGSize, backgroundColor: UIColor = UIColor.clear, borderWidth: CGFloat = 0, borderColor: UIColor = UIColor.clear) -> UIImage? {
         guard let name = String.fontAwesome(code: code) else { return nil }
-        return fontAwesomeIcon(name: name, style: style, textColor: textColor, size: size, backgroundColor: backgroundColor, borderWidth: borderWidth, borderColor: borderColor)
+        return fontAwesomeIcon(name: name.rawValue, style: style, textColor: textColor, size: size, backgroundColor: backgroundColor, borderWidth: borderWidth, borderColor: borderColor)
     }
 }
 
